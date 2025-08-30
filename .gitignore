@@ -1,0 +1,122 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!.env.example
+.env.local
+
+
+
+
+
+# Next.js
+.next/
+out/
+build/
+dist/
+.swc/
+next-env.d.ts
+*.tsbuildinfo
+
+# Testing
+coverage/
+.nyc_output
+junit.xml
+test-results/
+playwright-report/
+test-results-*/
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Certificates
+*.pem
+*.key
+*.crt
+*.cert
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Rust Backend
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# Prisma
+prisma/migrations/
+!prisma/migrations/.gitkeep
+
+# Vercel
+.vercel
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Temporary files
+*.tmp
+*.temp
+
+# AI/ML Models (if any)
+*.model
+*.pkl
+*.h5
+*.pb
+
+# Claude/Kiro specific
+.claude/
+.kiro/
+
+# Backup files
+*.bak
+*.backup
+
+# Lock files (keep package-lock.json but ignore others)
+yarn.lock
+pnpm-lock.yaml

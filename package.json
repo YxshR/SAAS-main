@@ -1,0 +1,55 @@
+{
+  "name": "ai-summarization-platform",
+  "version": "1.0.0",
+  "description": "AI-powered YouTube and web article summarization platform - Frontend only",
+  "private": true,
+
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:admin": "cd admin-panel && npm run dev",
+    "install:all": "npm install && npm run install:frontend && npm run install:admin",
+    "install:frontend": "cd frontend && npm install",
+    "install:admin": "cd admin-panel && npm install",
+    "build": "npm run build:frontend && npm run build:admin",
+    "build:frontend": "cd frontend && npm run build",
+    "build:admin": "cd admin-panel && npm run build",
+    "test": "npm run test:frontend && npm run test:admin",
+    "test:frontend": "cd frontend && npm run test",
+    "test:admin": "cd admin-panel && npm run test",
+    "lint": "npm run lint:frontend && npm run lint:admin",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:admin": "cd admin-panel && npm run lint",
+    "format": "npm run format:frontend && npm run format:admin",
+    "format:frontend": "cd frontend && npm run format",
+    "format:admin": "cd admin-panel && npm run format",
+    "setup": "npm run install:all",
+    "clean": "npm run clean:frontend && npm run clean:admin",
+    "clean:frontend": "cd frontend && rm -rf .next node_modules",
+    "clean:admin": "cd admin-panel && rm -rf .next node_modules"
+  },
+  "devDependencies": {
+    "axios": "^1.6.0",
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ai-summarization-platform.git"
+  },
+  "keywords": [
+    "ai",
+    "summarization",
+    "youtube",
+    "articles",
+    "chat",
+    "tts",
+    "nextjs",
+    "frontend"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

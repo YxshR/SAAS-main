@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /settings
+Disallow: /subscription
+Disallow: /admin
+Disallow: /api/
+Disallow: /verify-phone
+Disallow: /payment/
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://ai-summarizer.com/sitemap.xml
