@@ -330,11 +330,16 @@ export class GPUAccelerationManager {
   }
 
   static getOptimalAnimationProperties(): string[] {
+    // Return safe defaults during SSR
+    if (typeof window === 'undefined') {
+      return ['transform', 'opacity'];
+    }
+    
     if (!this.deviceCapabilities) this.init();
 
     const optimal = ['transform', 'opacity'];
     
-    if (this.deviceCapabilities.supportsGPU) {
+    if (this.deviceCapabilities?.supportsGPU) {
       optimal.push('filter');
     }
 
@@ -342,8 +347,13 @@ export class GPUAccelerationManager {
   }
 
   static shouldUseGPUAcceleration(): boolean {
+    // Return false during SSR
+    if (typeof window === 'undefined') {
+      return false;
+    }
+    
     if (!this.deviceCapabilities) this.init();
-    return this.deviceCapabilities.supportsGPU && !this.deviceCapabilities.isLowEndDevice;
+    return this.deviceCapabilities?.supportsGPU && !this.deviceCapabilities?.isLowEndDevice;
   }
 }
 

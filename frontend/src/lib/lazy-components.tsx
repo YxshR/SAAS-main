@@ -67,9 +67,9 @@ export const preloadCriticalComponents = () => {
       import('@/components/features/summary-display').catch(() => null),
       import('@/components/ui/button').catch(() => null),
     ]
-    
+
     // Don't await these - just start the loading process
-    preloadPromises.forEach(promise => 
+    preloadPromises.forEach(promise =>
       promise.catch(error => console.warn('Failed to preload component:', error))
     )
   }
@@ -81,16 +81,16 @@ export const dynamicImport = {
   LoginPage: () => import('@/app/login/page'),
   RegisterPage: () => import('@/app/register/page'),
   VerifyPhonePage: () => import('@/app/verify-phone/page'),
-  
+
   // Main app pages
   DashboardPage: () => import('@/app/dashboard/page'),
   ProfilePage: () => import('@/app/profile/page'),
   SettingsPage: () => import('@/app/settings/page'),
-  
+
   // Feature pages
   PricingPage: () => import('@/app/pricing/page'),
   SubscriptionPage: () => import('@/app/subscription/page'),
-  
+
   // Dynamic pages
   SummaryPage: (id: string) => import('@/app/summary/[id]/page'),
   ChatPage: (id: string) => import('@/app/chat/[id]/page'),
@@ -102,11 +102,11 @@ export const useIntersectionObserver = (
   options: IntersectionObserverInit = {}
 ) => {
   const targetRef = React.useRef<HTMLDivElement>(null)
-  
+
   React.useEffect(() => {
     const target = targetRef.current
     if (!target) return
-    
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -120,12 +120,12 @@ export const useIntersectionObserver = (
         ...options
       }
     )
-    
+
     observer.observe(target)
-    
+
     return () => observer.disconnect()
   }, [callback, options])
-  
+
   return targetRef
 }
 
@@ -137,17 +137,17 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   className?: string
 }
 
-export function LazyImage({ 
-  src, 
-  alt, 
+export function LazyImage({
+  src,
+  alt,
   placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+',
   className,
-  ...props 
+  ...props
 }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = React.useState(false)
   const [isInView, setIsInView] = React.useState(false)
   const imgRef = useIntersectionObserver(() => setIsInView(true))
-  
+
   return (
     <div ref={imgRef} className={className}>
       {isInView && (
@@ -179,7 +179,7 @@ export const performanceMonitor = {
       performance.mark(name)
     }
   },
-  
+
   // Measure performance between marks
   measure: (name: string, startMark: string, endMark?: string) => {
     if (typeof window !== 'undefined' && 'performance' in window) {
@@ -194,30 +194,30 @@ export const performanceMonitor = {
     }
     return 0
   },
-  
+
   // Get Core Web Vitals
   getCoreWebVitals: () => {
     if (typeof window !== 'undefined' && 'performance' in window) {
       const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
-      
+
       return {
         // First Contentful Paint
         fcp: performance.getEntriesByName('first-contentful-paint')[0]?.startTime || 0,
-        
+
         // Largest Contentful Paint (requires observer)
         lcp: 0, // Would need PerformanceObserver
-        
+
         // Time to Interactive (approximation)
         tti: navigation.domInteractive - navigation.startTime,
-        
+
         // Total Blocking Time (approximation)
         tbt: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
-        
+
         // Cumulative Layout Shift (requires observer)
         cls: 0, // Would need PerformanceObserver
       }
     }
-    
+
     return null
   }
 }
@@ -230,7 +230,7 @@ export const addResourceHints = () => {
       'https://fonts.googleapis.com',
       'https://fonts.gstatic.com',
     ]
-    
+
     preconnectDomains.forEach(domain => {
       const link = document.createElement('link')
       link.rel = 'preconnect'
@@ -238,13 +238,13 @@ export const addResourceHints = () => {
       link.crossOrigin = 'anonymous'
       document.head.appendChild(link)
     })
-    
+
     // DNS prefetch for API domains
     const dnsPrefetchDomains = [
       'https://api.openai.com',
       'https://api.elevenlabs.io',
     ]
-    
+
     dnsPrefetchDomains.forEach(domain => {
       const link = document.createElement('link')
       link.rel = 'dns-prefetch'
