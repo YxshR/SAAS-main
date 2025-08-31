@@ -529,10 +529,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-**Project Maintainer**: [Your Name]
-**Email**: [your.email@example.com]
-**Website**: [https://aisummarizer.com](https://aisummarizer.com)
-**GitHub**: [https://github.com/yourusername/ai-summarizer](https://github.com/yourusername/ai-summarizer)
+**Project Maintainer**: Yash Gupta
+**Email**: [yg27.june.yash@gmail.com]
+**Website**: https://summarizer-io.vercel.app/login
+**GitHub**: https://github.com/YxshR/SAAS-main/
 
 ---
 
